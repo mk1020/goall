@@ -1,25 +1,13 @@
 .app-wrapper{
   display: grid;
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
+  grid-template-rows: 1fr 7fr;
+  grid-template-columns: 2fr 8fr 2fr;
   grid-template-areas: 
-  "h h"
-  "n c";
- 
+  "h h h"
+  "navBar c rightBar";
+  height: 100vh ;
 }
 
-.header{
-   grid-area: h;
-   background-color: orange;
 
-}
 
-.nav{
-grid-area: n;
-background-color: orangered;
-}
 
-.content{
-grid-area: c;
-background-color: #5484;
-}

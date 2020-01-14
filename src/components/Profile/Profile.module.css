@@ -1,0 +1,67 @@
+.profile {
+  grid-area: c;
+  background-color: rgba(68, 134, 136, 0.267);
+  display: grid;
+  grid-template-columns:1fr 4fr;
+  grid-template-rows: max-content max-content max-content;
+  grid-template-areas:
+    "block_person block_person"
+    "blog blog"
+    "TextBlog TextBlog";
+}
+.wrapper_foto{
+  display: flex;
+ width: 320px;
+ justify-content: center;
+ align-items: center;
+
+}
+.profilefoto {
+  width: 170px;
+}
+.block_person{
+  grid-area: block_person;
+  display: flex;
+}
+
+.blog {
+  grid-area: blog;
+}
+
+.input {
+    width: 550px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.wrapper_input{
+width: fit-content;
+margin: 0 auto;
+}
+
+.h2_title{
+display: flex;
+justify-content: center;
+}
+
+.button_release{
+background-color: orange;
+padding: 10px 35px 10px 35px;
+margin-top: 5px;
+
+}
+.wrapper_button_release {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.blog_text{
+  grid-row-start: 3;
+  grid-column-start:1;
+  grid-column-end:3;
+  text-align: center;
+}
+
