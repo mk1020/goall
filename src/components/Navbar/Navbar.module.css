@@ -1,5 +1,24 @@
-.nav{
-    grid-area: navBar;
-    background-color: rgba(59, 68, 68, 0.445);
-    }
-    
+.nav {
+  grid-area: navBar;
+  background-color: rgba(59, 68, 68, 0.445);
+  color: white;
+  text-decoration: none;
+}
+
+.link_1 a {
+}
+.link_2 a {
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav .link_1 .active_link_1{
+    color: gold;
+}
+
+.nav .link_2 .active_link_2{
+    color: gold;
+}

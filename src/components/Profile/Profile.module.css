@@ -11,17 +11,17 @@
 }
 .wrapper_foto{
   display: flex;
- width: 320px;
  justify-content: center;
  align-items: center;
 
 }
 .profilefoto {
-  width: 170px;
+  width: 210px;
 }
 .block_person{
   grid-area: block_person;
   display: flex;
+  justify-content: center;
 }
 
 .blog {
