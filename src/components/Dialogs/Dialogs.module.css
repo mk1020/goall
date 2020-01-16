@@ -1,0 +1,34 @@
+.dialogs_wrapper{
+display: grid;
+grid-template-columns:1fr 4fr ;
+padding: 10px;
+margin: 10px 10px 0px 10px;
+border: 5px solid rgb(141, 146, 143);
+}
+.nav{
+}
+.nav a{
+color: white;
+text-decoration: none;
+display: block;
+}
+
+.nav .active_link_1{
+    color: gold;
+}
+
+.nav .active_link_2{
+    color: gold;
+}
+.nav .active_link_3{
+    color: gold;
+}
+.nav .active_link_4{
+    color: gold;
+}
+.nav .active_link_5{
+    color: gold;
+}
+.nav .active_link_6{
+    color: gold;
+}

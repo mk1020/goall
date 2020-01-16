@@ -1,6 +1,5 @@
 .profile {
   grid-area: c;
-  background-color: rgba(68, 134, 136, 0.267);
   display: grid;
   grid-template-columns:1fr 4fr;
   grid-template-rows: max-content max-content max-content;
