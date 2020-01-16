@@ -5,6 +5,12 @@ import PersonInfo from "./personInfo/personInfo";
 import MyPost from "./MyPost/MyPost";
 
 const Profile = () => {
+
+let MyPostData= [
+{post1:"Text Text Text Text Text Text ", likes:10},
+{post2:"123Test", likes:15}
+];
+
   return (
     <div className={styles.profile}>
        <div className={styles.block_person}>
@@ -20,9 +26,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <MyPost />
-
-      <div className={styles.wrp}>123</div>
+      <MyPost message={MyPostData[0].post1} likesCount={MyPostData[0].likes} />
       
     </div>
   );
