@@ -3,7 +3,7 @@ import styles from "./Dialogs.module.css";
 import { NavLink } from "react-router-dom";
 
 const DialogItem = props => {
-  let path = "/dialogs/1" + props.id;
+  let path = "/dialogs/" + props.id;
   return (
     <NavLink to={path} activeClassName={styles.active_link_1}>
       {props.name}
@@ -16,6 +16,7 @@ const Message = props => {
 };
 
 const Dialogs = () => {
+
   let dialogsData = [
     { id: 1, name: "Masha" },
     { id: 2, name: "Mike" },
@@ -30,16 +31,25 @@ const Dialogs = () => {
     { id: 4, message: "How are you feeling?" }
   ];
 
+  let dialogItems = dialogsData.map((el)=>{
+    return (
+    <DialogItem id={el.id} name={el.name} />
+      );
+  });
+
+  let MessageItems = messagesData.map((el)=>{
+    return (
+      <Message message={el.message} />
+      );
+  });
+
   return (
     <div className={styles.dialogs_wrapper}>
       <nav className={styles.nav}>
-        <DialogItem id={dialogsData[0].id} name={dialogsData[0].name} />
-        <DialogItem id={dialogsData[1].id} name={dialogsData[1].name} />
-        <DialogItem id={dialogsData[2].id} name={dialogsData[2].name} />
+        {dialogItems}
       </nav>
       <div>
-        <Message message={messagesData[0].message} />
-        <Message message={messagesData[1].message} />
+        {MessageItems}
       </div>
     </div>
   );

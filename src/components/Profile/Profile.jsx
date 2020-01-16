@@ -7,9 +7,14 @@ import MyPost from "./MyPost/MyPost";
 const Profile = () => {
 
 let MyPostData= [
-{post1:"Text Text Text Text Text Text ", likes:10},
-{post2:"123Test", likes:15}
+{post1:"Text Text Text Text Text Text ", likes:10}
 ];
+
+ let MyPostItem = MyPostData.map((el)=>{
+  return (
+    <MyPost message={el.post1} likesCount={el.likes} />
+    );
+}); 
 
   return (
     <div className={styles.profile}>
@@ -26,8 +31,7 @@ let MyPostData= [
           </div>
         </div>
       </div>
-      <MyPost message={MyPostData[0].post1} likesCount={MyPostData[0].likes} />
-      
+      {MyPostItem}   
     </div>
   );
 };
