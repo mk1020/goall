@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 let state = {
   dialogsPage: {
     dialogsData: [
@@ -16,13 +18,14 @@ let state = {
   },
 
   profilePage: {
-    MyPostData: [{ post1: "Text Text Text Text Text Text ", likes: 10 }]
+    MyPostData: [{ post1: "Text Text Text Text Text Text ", likes: 15 }]
   }
 };
 
-export let addPost = (postMessage)=> {
-  return (
-    state.profilePage.profilePage.MyPostData.push(postMessage)
-  );
-}
+export const addPost = (postMessage) => {
+  return state.profilePage.MyPostData.push(postMessage);
+};
+/* console.log('addPost', postMessage, state.profilePage.MyPostData)
+ */
+rerenderEntireTree(state);
 export default state;
