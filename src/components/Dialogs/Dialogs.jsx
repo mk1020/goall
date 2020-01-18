@@ -2,8 +2,9 @@ import React from "react";
 import styles from "./Dialogs.module.css";
 import { NavLink } from "react-router-dom";
 
-const DialogItem = props => {
-  let path = "/dialogs/" + props.id;
+const DialogShow = props => {
+  let path = "/dialogs/" + props.id;  /* Компонента которая отрисовывает имена людей в диалогах
+  точнее, она отрисовывет ссылки на диалоги, на странице Dialogs */
   return (
     <NavLink to={path} activeClassName={styles.active_link_1}>
       {props.name}
@@ -12,44 +13,33 @@ const DialogItem = props => {
 };
 
 const Message = props => {
-  return <div>{props.message}</div>;
+  debugger;
+  return <div>{props.message}</div>; /* отрисовка сообщений */
 };
 
-const Dialogs = () => {
+const Dialogs = (props) => {
 
-  let dialogsData = [
-    { id: 1, name: "Masha" },
-    { id: 2, name: "Mike" },
-    { id: 3, name: "Sveta" },
-    { id: 4, name: "Will" }
-  ];
+  
 
-  let messagesData = [
-    { id: 1, message: "Hi" },
-    { id: 2, message: "Hello" },
-    { id: 3, message: "How are you" },
-    { id: 4, message: "How are you feeling?" }
-  ];
-
-  let dialogItems = dialogsData.map((el)=>{
+  let dialogShow = props.data.dialogsData.map((el)=>{  /* перебор всех диалогов */
     return (
-    <DialogItem id={el.id} name={el.name} />
+    <DialogShow id={el.id} name={el.name} />  
       );
   });
 
-  let MessageItems = messagesData.map((el)=>{
+  let MessageShow = props.data.messagesData.map((el)=>{
     return (
-      <Message message={el.message} />
+      <Message message={el.message} />  /* отрисовка всех сообщений */
       );
   });
 
   return (
     <div className={styles.dialogs_wrapper}>
       <nav className={styles.nav}>
-        {dialogItems}
+        {dialogShow}
       </nav>
       <div>
-        {MessageItems}
+        {MessageShow}
       </div>
     </div>
   );

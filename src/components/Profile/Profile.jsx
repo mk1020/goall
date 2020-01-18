@@ -4,15 +4,12 @@ import Avatar from "../../image/avatar.svg";
 import PersonInfo from "./personInfo/personInfo";
 import MyPost from "./MyPost/MyPost";
 
-const Profile = () => {
+const Profile = (props) => {
 
-let MyPostData= [
-{post1:"Text Text Text Text Text Text ", likes:10}
-];
 
- let MyPostItem = MyPostData.map((el)=>{
+ let MyPostItem = props.data.MyPostData.map((el)=>{
   return (
-    <MyPost message={el.post1} likesCount={el.likes} />
+    <MyPost message={el.post1} likesCount={el.likes} addPost={props.addPost}/>
     );
 }); 
 
@@ -25,7 +22,8 @@ let MyPostData= [
       <div className={styles.blog}>
         <h2 className={styles.h2_title}>My Blog</h2>
         <div className={styles.wrapper_input}>
-          <input className={styles.input} type="text"></input>
+          
+          <textarea className={styles.input}></textarea>
           <div className={styles.wrapper_button_release}>
             <button className={styles.button_release}>Release</button>
           </div>
