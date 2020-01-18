@@ -6,20 +6,26 @@ import MyPost from "./MyPost/MyPost";
 
 const Profile = (props) => {
 
-  const handleChange = (e) => {     /* при изменении состояния textarea оно передасться в e 
-    и в e будет введенный текст */
-     //textPost=e.target.value; 
-  }
+//  const [post, changePost] = useState()
+//  const handleChange = (e) => {     /* при изменении состояния textarea оно передасться в e 
+//    и в e будет введенный текст */
+//    changePost(e.target.value);
+//  }
+ let newPost;
 
- const MyOnePost = props.data.MyPostData.map((el, i)=>{
+   const handleChange = (e) => {/* при изменении состояния textarea оно передасться в e 
+    и в e будет введенный текст */
+      newPost= e.target.value;
+   }
+ const MyOnePost = props.data.MyPostData.map((el)=>{
   return (
-    <MyPost message={el.post1} likesCount={el.likes} addPost={props.addPost}/>
+    <MyPost message={el.post} likesCount={el.likes} addPost={props.addPost}/>
     );
 }); 
 
- let MyPostItem = props.data.MyPostData.map((el)=>{
+ let MyPostText = props.data.MyPostData.map((el)=>{
   return (
-    <MyPost message={el.post1} likesCount={el.likes} addPost={props.addPost}/>
+    <MyPost message={el.post} likesCount={el.likes} addPost={props.addPost}/>
     );
 }); 
 
@@ -27,7 +33,7 @@ const Profile = (props) => {
 const addPost = () => { /* берёт  addPost из state и добавляет 
   новое сообщение в state*/
   return props.addPost(
-    { post1: 'post', likes: 10 }
+    {post: newPost, likes: 11 }
   );
 };
   return (
@@ -40,13 +46,15 @@ const addPost = () => { /* берёт  addPost из state и добавляет
         <h2 className={styles.h2_title}>My Blog</h2>
         <div className={styles.wrapper_input}>
           
-        <textarea onChange={handleChange} className={styles.input}></textarea>
+        <textarea  onChange={handleChange} className={styles.input}></textarea>
           <div className={styles.wrapper_button_release}>
           <button onClick={addPost} className={styles.button_release}>Release</button>
           </div>
         </div>
       </div>
-      {MyPostItem}   
+      <div className={styles.wrapper_block_post}>
+        {MyPostText}  
+      </div> 
     </div>
   );
 };

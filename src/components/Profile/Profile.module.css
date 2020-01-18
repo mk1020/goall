@@ -64,3 +64,10 @@ margin-top: 5px;
   text-align: center;
 }
 
+.wrapper_block_post{
+  display: flex;
+  justify-content: center;
+  grid-area: TextBlog;
+  flex-direction: column;
+
+}

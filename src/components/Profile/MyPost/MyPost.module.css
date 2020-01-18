@@ -1,6 +1,5 @@
 .blog_text{
   text-align: center;
-  grid-area: TextBlog;
 }
 .counter_likes{
   border: 1px solid rgb(141, 146, 143);
