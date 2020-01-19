@@ -1,5 +1,3 @@
-import { rerenderEntireTree } from "../render";
-
 let state = {
   dialogsPage: {
     dialogsData: [
@@ -23,6 +21,7 @@ let state = {
   }
 };
 
+let rerenderEntireTree;
 export const addPost = (postMessage) => {
    state.profilePage.MyPostData.push(postMessage);
    state.profilePage.TextPost='';
@@ -34,4 +33,7 @@ export const newTextPost = (newText) => {
   rerenderEntireTree(state);
 }
 
+export const subscribe = (observer) => {
+  rerenderEntireTree = observer;
+}
 export default state;
