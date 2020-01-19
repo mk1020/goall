@@ -11,17 +11,12 @@ const Profile = (props) => {
 //    и в e будет введенный текст */
 //    changePost(e.target.value);
 //  }
- let newPost;
 
-   const handleChange = (e) => {/* при изменении состояния textarea оно передасться в e 
+   const onPostChange = (e) => {/* при изменении состояния textarea оно передасться в e 
     и в e будет введенный текст */
-      newPost= e.target.value;
+    console.log("text -"+e.target.value);
+      props.newTextPost(e.target.value);
    }
- const MyOnePost = props.data.MyPostData.map((el)=>{
-  return (
-    <MyPost message={el.post} likesCount={el.likes} addPost={props.addPost}/>
-    );
-}); 
 
  let MyPostText = props.data.MyPostData.map((el)=>{
   return (
@@ -32,8 +27,8 @@ const Profile = (props) => {
 
 const addPost = () => { /* берёт  addPost из state и добавляет 
   новое сообщение в state*/
-  return props.addPost(
-    {post: newPost, likes: 11 }
+    props.addPost(
+    {post: props.data.TextPost, likes: 11 }
   );
 };
   return (
@@ -46,7 +41,7 @@ const addPost = () => { /* берёт  addPost из state и добавляет
         <h2 className={styles.h2_title}>My Blog</h2>
         <div className={styles.wrapper_input}>
           
-        <textarea  onChange={handleChange} className={styles.input}></textarea>
+        <textarea onChange={onPostChange} value={props.data.TextPost} className={styles.input}></textarea>
           <div className={styles.wrapper_button_release}>
           <button onClick={addPost} className={styles.button_release}>Release</button>
           </div>

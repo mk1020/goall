@@ -18,15 +18,20 @@ let state = {
   },
 
   profilePage: {
-    MyPostData: [{ post: "Text Text Text Text Text Text ", likes: 15 }]
+    MyPostData: [{ post: "Text Text Text Text Text Text ", likes: 15 }],
+    TextPost: '132'
   }
 };
 
 export const addPost = (postMessage) => {
    state.profilePage.MyPostData.push(postMessage);
+   state.profilePage.TextPost='';
    rerenderEntireTree(state);
-
 }
-/* console.log('addPost', postMessage, state.profilePage.MyPostData)
- */
+
+export const newTextPost = (newText) => {
+  state.profilePage.TextPost=newText;
+  rerenderEntireTree(state);
+}
+
 export default state;
