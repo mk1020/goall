@@ -7,7 +7,7 @@ import App from './App';
 
 
 let rerenderEntireTree = (state) => {
-    ReactDOM.render(<App state={state} addPost={store.addPost.bind(store)} newTextPost={store.newTextPost.bind(store)} />, document.getElementById('root'));
+    ReactDOM.render(<App state={state} dispatch = {store.dispatch.bind(store)} />, document.getElementById('root'));
 
 };
 

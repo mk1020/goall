@@ -5,18 +5,13 @@ import PersonInfo from "./personInfo/personInfo";
 import MyPost from "./MyPost/MyPost";
 
 const Profile = (props) => {
+  console.log(props.dispatch);
 
 //  const [post, changePost] = useState()
 //  const handleChange = (e) => {     /* при изменении состояния textarea оно передасться в e 
 //    и в e будет введенный текст */
 //    changePost(e.target.value);
 //  }
-
-   const onPostChange = (e) => {/* при изменении состояния textarea оно передасться в e 
-    и в e будет введенный текст */
-    console.log("text -"+e.target.value);
-      props.newTextPost(e.target.value);
-   }
 
  let MyPostText = props.data.MyPostData.map((el)=>{
   return (
@@ -27,10 +22,17 @@ const Profile = (props) => {
 
 const addPost = () => { /* берёт  addPost из state и добавляет 
   новое сообщение в state*/
-    props.addPost(
-    {post: props.data.TextPost, likes: 11 }
-  );
+   // props.addPost( {post: props.data.TextPost, likes: 11 } );
+   props.dispatch ( {type: 'ADD-POST', 
+                     postMessage: {post: props.data.TextPost, likes: 11 }} )
 };
+
+const onPostChange = (e) => {/* при изменении состояния textarea оно передасться в e 
+  и в e будет введенный текст */
+//    props.newTextPost(e.target.value);
+      props.dispatch( {type: 'UPDATE-NEW-POST-TEXT', newText:e.target.value} )
+ }
+
   return (
     <div className={styles.profile}>
        <div className={styles.block_person}>

@@ -5,23 +5,23 @@ import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import RightBar from './components/rightBar/rightBar';
 import Dialogs from './components/Dialogs/Dialogs';
-import {BrowserRouter, Route} from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 
 
 const App = (props) => {
-     
+console.log(props);
     return (
         <BrowserRouter>
-        <div className="app-wrapper">
-            <Header />
-            <Navbar />
-            <div className='content-wrapper'>
-            <Route path='/profile' render={()=>  <Profile  data={props.state.profilePage} addPost={props.addPost} newTextPost={props.newTextPost}/> } />
-            <Route path='/dialogs' render={()=> ( <Dialogs data={props.state.dialogsPage}/> )} />
+            <div className="app-wrapper">
+                <Header />
+                <Navbar />
+                <div className='content-wrapper'>
+                    <Route path='/profile' render={() => <Profile data={props.state.profilePage} dispatch={props.dispatch} />} />
+                    <Route path='/dialogs' render={() => (<Dialogs data={props.state.dialogsPage} />)} />
+                </div>
+                <RightBar />
             </div>
-            <RightBar />
-        </div>
-        </BrowserRouter>
+        </BrowserRouter> 
     );
 }
 
