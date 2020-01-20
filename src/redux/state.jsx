@@ -42,18 +42,24 @@ let store = {
   }, */
 
   dispatch(action) {
-    console.log(action);
-    // {type: 'ADD-POST'}
     if (action.type === "ADD-POST") {
       this._state.profilePage.MyPostData.push(action.postMessage);
       this._state.profilePage.TextPost = "";
       this.rerenderEntireTree(this._state);
-      console.log('true')
     } else if (action.type === "UPDATE-NEW-POST-TEXT") {
       this._state.profilePage.TextPost = action.newText;
       this.rerenderEntireTree(this._state);
-      console.log('false')
     }
   }
 };
+
+export const addPostActionCreator = (postMessage)=> 
+( {type: 'ADD-POST', postMessage: {post: postMessage, likes: 11 } } )
+
+
+
+export const updateNewPostTextActionCreator = (newText)=> 
+( {type: 'UPDATE-NEW-POST-TEXT', newText: newText} )
+         
+
 export default store;

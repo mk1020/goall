@@ -3,10 +3,9 @@ import styles from "./Profile.module.css";
 import Avatar from "../../image/avatar.svg";
 import PersonInfo from "./personInfo/personInfo";
 import MyPost from "./MyPost/MyPost";
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../redux/state";
 
 const Profile = (props) => {
-  console.log(props.dispatch);
-
 //  const [post, changePost] = useState()
 //  const handleChange = (e) => {     /* при изменении состояния textarea оно передасться в e 
 //    и в e будет введенный текст */
@@ -23,14 +22,13 @@ const Profile = (props) => {
 const addPost = () => { /* берёт  addPost из state и добавляет 
   новое сообщение в state*/
    // props.addPost( {post: props.data.TextPost, likes: 11 } );
-   props.dispatch ( {type: 'ADD-POST', 
-                     postMessage: {post: props.data.TextPost, likes: 11 }} )
+   props.dispatch ( addPostActionCreator(props.data.TextPost) )
 };
 
 const onPostChange = (e) => {/* при изменении состояния textarea оно передасться в e 
   и в e будет введенный текст */
 //    props.newTextPost(e.target.value);
-      props.dispatch( {type: 'UPDATE-NEW-POST-TEXT', newText:e.target.value} )
+      props.dispatch( updateNewPostTextActionCreator(e.target.value) )
  }
 
   return (
