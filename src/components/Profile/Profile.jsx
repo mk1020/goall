@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styles from "./Profile.module.css";
 import Avatar from "../../image/avatar.svg";
 import PersonInfo from "./personInfo/personInfo";
@@ -6,6 +6,10 @@ import MyPost from "./MyPost/MyPost";
 import { addPostActionCreator, updateNewPostTextActionCreator } from "../../redux/state";
 
 const Profile = (props) => {
+/* const [post, changePost] = useState(false)
+  useEffect (() => {
+      post == false ? changePost(true) : changePost(false)
+  },[post]) */
 //  const [post, changePost] = useState()
 //  const handleChange = (e) => {     /* при изменении состояния textarea оно передасться в e 
 //    и в e будет введенный текст */
