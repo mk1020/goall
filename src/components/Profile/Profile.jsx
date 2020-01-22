@@ -3,7 +3,7 @@ import styles from "./Profile.module.css";
 import Avatar from "../../image/avatar.svg";
 import PersonInfo from "./personInfo/personInfo";
 import MyPost from "./MyPost/MyPost";
-import { addPostActionCreator, updateNewPostTextActionCreator } from "../../redux/state";
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../redux/profile-reducer";
 
 const Profile = (props) => {
 /* const [post, changePost] = useState(false)

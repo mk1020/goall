@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./Dialogs.module.css";
 import { NavLink } from "react-router-dom";
-import { addInputMessageCharCreator, PutFullMessagePageCreator } from "../../redux/state";
+import { addInputMessageCharCreator, PutFullMessagePageCreator } from '../../redux/dialogs-reducer';
+
+
 
 const DialogShow = props => {
   let path =
