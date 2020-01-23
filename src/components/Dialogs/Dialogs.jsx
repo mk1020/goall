@@ -12,7 +12,7 @@ const DialogShow = props => {
     </NavLink>
   );
 };
-
+ 
 const Message = props => {
   return <div>{props.message}</div>; /* отрисовка сообщений */
 };
@@ -28,6 +28,15 @@ const Dialogs = props => {
   });
 
 
+  const TextAriaNewChar = (e) => {
+    props.TextAriaNewChar(e.target.value);
+}
+
+let addInputMessageChar = () => {
+  props.addInputMessageChar(props.data.textAriaNew);
+}
+
+
   return (
     <div className={styles.wrapper_dialogs_wrapper}>
       <div className={styles.dialogs_wrapper}>
@@ -38,8 +47,8 @@ const Dialogs = props => {
         </div>
       </div>
       <div className={styles.wraper_input_and_button}>
-      <textarea onChange={props.TextAriaNewChar} value={props.data.textAriaNew} className={styles.input}></textarea>
-        <button onClick={props.ButtonSendMessage} className={styles.button_release}>Release</button>
+      <textarea onChange={TextAriaNewChar} value={props.data.textAriaNew} className={styles.input}></textarea>
+        <button onClick={addInputMessageChar} className={styles.button_release}>Release</button>
       </div>
     </div>
   );

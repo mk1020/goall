@@ -3,26 +3,26 @@ import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import RightBar from './components/rightBar/rightBar';
-import Dialogs from './components/Dialogs/Dialogs';
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import ProfileConteiner from './components/Profile/ProfileConteiner';
 import DialogsConteiner from './components/Dialogs/DialogsConteiner';
 
 
+
 const App = (props) => {
-    console.log('PROPS',props.store.getState());
+    console.log('PROPS', props.store.getState());
     return (
-        <BrowserRouter>
-            <div className="app-wrapper">
-                <Header />
-                <Navbar />
-                <div className='content-wrapper'>
-                    <Route path='/profile' render={() => <ProfileConteiner store={props.store} />} />
-                    <Route path='/dialogs' render={() => (<DialogsConteiner store={props.store} />)} />
+        
+                <div className="app-wrapper">
+                    <Header />
+                    <Navbar />
+                    <div className='content-wrapper'>
+                        <Route path='/profile' render={() => <ProfileConteiner store={props.store} />} />
+                        <Route path='/dialogs' render={() => (<DialogsConteiner store={props.store} />)} />
+                    </div>
+                    <RightBar />
                 </div>
-                <RightBar />
-            </div>
-        </BrowserRouter> //data={props.state.dialogsPage} dispatch={props.dispatch} 
+            //data={props.state.dialogsPage} dispatch={props.dispatch} 
     );
 }
 
