@@ -20,13 +20,10 @@ let initialState = {
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case "ADD-MESSAGE-CHAR": {
-            state.textAriaNew = action.newChar;
-            return state;
+            return {...state, textAriaNew: action.char};
         }
         case 'PUT-FULL-MESSAGE-PAGE-CREATOR': {
-            state.textAriaNew = '';
-            state.TextMessage = action.sendMessage1;
-            return state;
+            return {...state, textAriaNew: '', TextMessage: action.sendMessage};
         }
         default: return state;
     }
@@ -36,12 +33,12 @@ const dialogsReducer = (state = initialState, action) => {
 
 export const addInputMessageCharCreator = (char) => ({
     type: "ADD-MESSAGE-CHAR",
-    newChar: char
+    char: char
 })
 
 export const PutFullMessagePageCreator = (sendMessage) => ({
     type: "PUT-FULL-MESSAGE-PAGE-CREATOR",
-    sendMessage1: sendMessage
+    sendMessage: sendMessage
 })
 
 export default dialogsReducer;

@@ -5,22 +5,20 @@ import PersonInfo from "./personInfo/personInfo";
 import MyPost from "./MyPost/MyPost";
 
 const Profile = (props) => {
-/* const [post, changePost] = useState(false)
-  useEffect (() => {
-      post == false ? changePost(true) : changePost(false)
-  },[post]) */
-//  const [post, changePost] = useState()
-//  const handleChange = (e) => {     /* при изменении состояния textarea оно передасться в e 
-//    и в e будет введенный текст */
-//    changePost(e.target.value);
-//  }
-
+  
  let MyPostText = props.profilePage.MyPostData.map((el)=>{
   return (
     <MyPost message={el.post} likesCount={el.likes} addPost={props.addPost}/>
     );
 }); 
 
+const addPostAction = () => {
+   props.addPostAction(props.profilePage.TextPost);
+};
+
+const onPostChange = (e) => {
+      props.updateNewPostTextAction(e.target.value);
+};
 
   return (
     <div className={styles.profile}>
@@ -34,7 +32,7 @@ const Profile = (props) => {
           
         <textarea onChange={props.onPostChange} value={props.profilePage.TextPost} className={styles.input}></textarea>
           <div className={styles.wrapper_button_release}>
-          <button onClick={props.addPost} className={styles.button_release}>Release</button>
+          <button onClick={props.addPostAction} className={styles.button_release}>Release</button>
           </div>
         </div>
       </div>
