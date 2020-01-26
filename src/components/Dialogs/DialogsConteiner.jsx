@@ -2,13 +2,14 @@ import { addInputMessageCharCreator, PutFullMessagePageCreator } from '../../red
 import Dialogs from "./Dialogs";
 import {connect} from 'react-redux'
 
-
-const DialogsConteiner= connect( 
+const DialogsConteiner = connect( 
                                 (state)=>{ return {data: state.dialogsPage} }, //кидаем данные сначала
-                                ()=> {return {addInputMessageChar: addInputMessageCharCreator,  // потом экшэны. Анонимная функция 
-                                             TextAriaNewChar: PutFullMessagePageCreator}}
-                                )(Dialogs); //использ. потому что такие правила
-
+                                (dispatch)=> {       
+                                    return {
+                                              addInputMessageChar: dispatch(addInputMessageCharCreator),  
+                                              PutFullMessagePage: dispatch (PutFullMessagePageCreator)}
+                                            }
+                                )(Dialogs);
 
   export default DialogsConteiner;
  

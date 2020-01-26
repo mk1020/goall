@@ -28,12 +28,12 @@ const Dialogs = props => {
   });
 
 
-  const TextAriaNewChar = (e) => {
-    props.TextAriaNewChar(e.target.value);
+  const PutFullMessagePage = () => {
+    props.PutFullMessagePage(props.data.textAriaNew);
 }
 
-let addInputMessageChar = () => {
-  props.addInputMessageChar(props.data.textAriaNew);
+let addInputMessageChar = (e) => {
+ props.addInputMessageChar (e.target.value);
 }
 
 
@@ -47,8 +47,8 @@ let addInputMessageChar = () => {
         </div>
       </div>
       <div className={styles.wraper_input_and_button}>
-      <textarea onChange={TextAriaNewChar} value={props.data.textAriaNew} className={styles.input}></textarea>
-        <button onClick={addInputMessageChar} className={styles.button_release}>Release</button>
+      <textarea onChange={addInputMessageChar} value={props.data.textAriaNew} className={styles.input}></textarea>
+        <button onClick={PutFullMessagePage} className={styles.button_release}>Release</button>
       </div>
     </div>
   );

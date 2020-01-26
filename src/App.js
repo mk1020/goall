@@ -13,7 +13,7 @@ const App = (props) => {
     return (
         <div className="app-wrapper">
             <Header />
-            <Navbar />``
+            <Navbar />
             <div className='content-wrapper'>
                 <Route path='/profile' render={() => <ProfileConteiner store={props.store} />} />
                 <Route path='/dialogs' render={() => (<DialogsConteiner store={props.store} />)} />
